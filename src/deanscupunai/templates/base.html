@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}DEAN'S CUP 2026 - Jadwal Pertandingan Olahraga FIK UNAI{% endblock %}</title>
+
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Jadwal resmi pertandingan olahraga Dean's Cup UNAI 2026 - Fakultas Ekonomi Universitas Advent Indonesia. Futsal Putra, Basket 3x3, LoL Wild Rift, Badminton Ganda.">
+    <meta name="keywords" content="Dean's Cup UNAI, UNAI, Fakultas Ekonomi, Jadwal Futsal, Jadwal Basket, Turnamen Kampus, LoL Wild Rift, Badminton UNAI, Bandung Barat">
+    <meta name="author" content="Fakultas Ekonomi Universitas Advent Indonesia">
+    <meta name="theme-color" content="#0a0f1d">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="DEAN'S CUP 2026 - Jadwal Pertandingan Olahraga FIK UNAI">
+    <meta property="og:description" content="Pantau jadwal lengkap, live score, dan hasil pertandingan olahraga Dean's Cup 2026 FIK UNAI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deanscup.unai.edu">
+    <meta property="og:image" content="/static/img/hero-banner.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏆</text></svg>">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- Structured Data: SportsEvent -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsEvent",
+      "name": "DEAN'S CUP UNAI 2026",
+      "description": "Turnamen olahraga tahunan Fakultas Ekonomi Universitas Advent Indonesia (UNAI)",
+      "startDate": "2026-12-04T08:00:00+07:00",
+      "endDate": "2026-12-09T20:00:00+07:00",
+      "location": {
+        "@type": "Place",
+        "name": "UNAI Sports Complex",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Kolonel Masturi No. 288",
+          "addressLocality": "Parongpong, Bandung Barat",
+          "addressRegion": "Jawa Barat",
+          "postalCode": "40559",
+          "addressCountry": "ID"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Fakultas Ekonomi Universitas Advent Indonesia"
+      }
+    }
+    </script>
+</head>
+<body>
+    <a href="#jadwal" class="skip-to-content">Menuju ke Jadwal Pertandingan</a>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar" id="top-nav">
+        <div class="nav-container">
+            <a href="/" class="brand-logo" id="brand-link">
+                <span class="brand-badge">🏆 FIK UNAI</span>
+                <div class="brand-text">
+                    <span class="brand-title">DEAN'S CUP 2026</span>
+                    <span class="brand-sub">Fakultas Ekonomi</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="nav-links">
+                <a href="#jadwal" class="nav-item active">Jadwal</a>
+                <a href="#cabor" class="nav-item">Cabor</a>
+                <a href="#klasemen" class="nav-item">Klasemen</a>
+                <a href="#venue" class="nav-item">Venue</a>
+                <a href="#timeline" class="nav-item">Timeline</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="live-pill" title="Turnamen aktif di kampus UNAI">
+                    <span class="live-indicator-dot"></span>
+                    <span class="live-pill-text">LIVE DAY</span>
+                </div>
+                <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Ganti Tema">
+                    <span class="theme-icon dark-icon">🌙</span>
+                    <span class="theme-icon light-icon">☀️</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Match Details Modal -->
+    <div class="modal-backdrop" id="match-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-card" id="match-modal-card">
+            <div class="modal-header">
+                <div class="modal-header-info">
+                    <span class="modal-sport-badge" id="modal-sport-badge">⚽ Futsal Putra</span>
+                    <span class="modal-stage-badge" id="modal-stage-badge">Semifinal</span>
+                </div>
+                <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Tutup Detail">✕</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamically populated via secure textContent/DOM methods -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">🏆 DEAN'S CUP 2026</div>
+                <p class="footer-desc">
+                    Pesta Olahraga & E-Sport Mahasiswa Fakultas Ekonomi, Universitas Advent Indonesia.
+                    Mengusung sportivitas, persahabatan, dan semangat kekeluargaan IT.
+                </p>
+                <div class="footer-meta">
+                    <span>📍 Jl. Kolonel Masturi No. 288, Parongpong, Bandung Barat</span>
+                    <span>✉️ deanscup@unai.edu</span>
+                </div>
+            </div>
+
+            <div class="footer-links-group">
+                <h4>Navigasi Cepat</h4>
+                <ul>
+                    <li><a href="#jadwal">Jadwal Pertandingan</a></li>
+                    <li><a href="#cabor">Cabang Olahraga</a></li>
+                    <li><a href="#klasemen">Klasemen Sementara</a></li>
+                    <li><a href="#venue">Peta & Lokasi Lapangan</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-group">
+                <h4>Cabang Olahraga</h4>
+                <ul>
+                    <li><a href="#jadwal" data-filter-sport="futsal">Futsal Putra (16 Tim)</a></li>
+                    <li><a href="#jadwal" data-filter-sport="basket">Basket 3x3 (12 Tim)</a></li>
+                    <li><a href="#jadwal" data-filter-sport="esport">LoL Wild Rift (32 Tim)</a></li>
+                    <li><a href="#jadwal" data-filter-sport="badminton">Badminton Ganda (24 Pasang)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Panitia Pelaksana</h4>
+                <p>HIMA Teknik Informatika & HIMA Sistem Informasi</p>
+                <p>BEM Fakultas Ekonomi UNAI 2026</p>
+                <div class="social-links">
+                    <span class="social-tag">Instagram: @deanscup.fikunai</span>
+                    <span class="social-tag">WhatsApp: +62 812-3456-7890</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Dean's Cup Fakultas Ekonomi - Universitas Advent Indonesia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript with security compliance -->
+    <script src="/static/js/main.js" defer></script>
+</body>
+</html>
