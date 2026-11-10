@@ -32,3 +32,32 @@ jobs:
       # 4. Jalankan unit test
       - name: Run tests
         run: pytest
+
+  deploy:
+    name: Deploy to VPS
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Execute remote deployment commands via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            # 1. Masuk ke direktori project
+            cd /home/deployer/app
+
+            # 2. Jika project belum pernah di-clone, clone repository:
+            if [ ! -d ".git" ]; then
+              git clone https://github.com/${{ github.repository }}.git .
+            else
+              git fetch --all
+              git reset --hard origin/main
+            fi
+
+            # 3. Jalankan / restart aplikasi
+            docker compose down && docker compose up -d --build
